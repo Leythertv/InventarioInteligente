@@ -1,0 +1,115 @@
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 40px;
+  background-color: var(--white); /* Changed background color to white */
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 8px 16px rgba(46, 196, 182, 0.1); /* More pronounced shadow */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.login-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(46, 196, 182, 0.15); /* Larger shadow on hover */
+}
+
+.login-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--emerald); /* Changed text color */
+  font-size: 2.2rem; /* Slightly larger title */
+  font-weight: 700;
+  letter-spacing: 0.5px; /* Subtle letter spacing */
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-form input {
+  padding: 14px; /* Increased input padding */
+  border: 1px solid var(--emerald); /* Changed border color */
+  border-radius: 8px; /* Rounded inputs */
+  font-size: 1rem; /* Input font-size */
+  background-color: var(--mint-cream);
+  color: var(--emerald); /* Changed text color */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-form input::placeholder {
+  color: #999; /* Placeholder text color */
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: var(--emerald); /* Focus border color */
+  box-shadow: 0 0 5px rgba(46, 196, 182, 0.3); /* Focus shadow */
+}
+
+.login-form button {
+  padding: 14px;
+  background-color: var(--emerald); /* Changed button color */
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Button shadow */
+}
+
+.login-form button:hover {
+  background-color: var(--white); /* Hover button color */
+  color: var(--emerald); /* Changed text color on hover */
+  transform: scale(1.02); /* Slight scaling effect on hover */
+}
+
+.login-form button:active {
+  transform: scale(1);
+}
+
+.error-message {
+  color: var(--emerald); /* Changed error message color */
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9rem; /* Smaller error message */
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 25px; /* Increased spacing */
+  color: var(--emerald); /* Changed text color */
+  font-size: 0.9rem;
+}
+
+.register-link a {
+  color: var(--emerald); /* Changed link color */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+  color: var(--white); /* Hover link color */
+  text-decoration: underline; /* Underline on hover */
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    margin: 50px 20px;
+    padding: 30px;
+  }
+
+  .login-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .login-form input,
+  .login-form button {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}

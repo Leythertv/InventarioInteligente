@@ -1,0 +1,61 @@
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #3498db;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.back-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.back-icon {
+  color: white;
+  font-size: 28px;
+  transition: transform 0.2s ease;
+}
+
+.back-button:hover .back-icon {
+  transform: translateX(-4px);
+}
+
+.back-button span {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .back-button {
+    top: 15px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .back-icon {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .back-button {
+    width: 49px;
+    height: 49px;
+  }
+  
+  .back-icon {
+    font-size: 32px;
+  }
+}

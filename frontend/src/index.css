@@ -1,0 +1,174 @@
+:root {
+  --white: #FFFFFF;
+  --mint-cream: #CBF3F0;
+  --emerald: #2EC4B6;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif; /* Changed font family for better readability */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--mint-cream); /* Changed background color */
+  color: var(--emerald);
+  line-height: 1.6; /* Improved line height for better readability */
+}
+
+a {
+  color: var(--emerald); /* Changed link color */
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+  color: var(--white); /* Changed hover color */
+  text-decoration: underline;
+}
+
+button {
+  background-color: var(--emerald); /* Changed button color */
+  color: var(--white);
+  border: none;
+  padding: 12px 24px; /* Increased padding for better touch area */
+  border-radius: 8px; /* More rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+}
+
+button:hover {
+  background-color: var(--white); /* Changed hover button color */
+  color: var(--emerald); /* Changed text color on hover */
+  transform: translateY(-2px); /* Slight hover up */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Larger shadow on hover */
+}
+
+button:active {
+  transform: translateY(0); /* Reset transform on active */
+}
+
+input, select, textarea {
+  border: 1px solid var(--emerald);
+  border-radius: 8px; /* More rounded corners */
+  padding: 12px; /* Increased padding */
+  background-color: var(--mint-cream);
+  color: var(--emerald);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--emerald); /* Changed focus border color */
+  box-shadow: 0 0 0 3px var(--white); /* More pronounced focus shadow */
+}
+
+.card {
+  background-color: var(--mint-cream);
+  border-radius: 12px; /* More rounded corners */
+  padding: 24px; /* Increased padding */
+  box-shadow: 0 4px 8px rgba(46, 196, 182, 0.1); /* More defined shadow */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-3px); /* Slight hover up */
+  box-shadow: 0 6px 12px rgba(46, 196, 182, 0.15); /* Larger shadow on hover */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--mint-cream);
+  border-radius: 8px; /* More rounded corners */
+  overflow: hidden; /* Ensure rounded corners are visible */
+}
+
+.table th {
+  background-color: var(--emerald); /* Changed table header color */
+  color: var(--white);
+  padding: 16px; /* Increased padding */
+  text-align: left;
+  font-weight: 600; /* Bold text */
+}
+
+.table td {
+  padding: 16px; /* Increased padding */
+  border-bottom: 1px solid var(--mint-cream);
+}
+
+.table tr:hover {
+  background-color: var(--white); /* Changed hover row color */
+  color: var(--emerald); /* Ensure text color remains emerald on hover */
+}
+
+.navbar {
+  background-color: var(--emerald);
+  color: var(--white);
+  padding: 20px; /* Increased padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: var(--white);
+  margin: 0 15px; /* Added margin for spacing */
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--mint-cream); /* Changed hover color */
+}
+
+.alert {
+  padding: 16px; /* Increased padding */
+  border-radius: 8px; /* More rounded corners */
+  margin: 20px 0; /* Increased margin */
+  font-size: 1rem; /* Consistent font size */
+}
+
+.alert-success {
+  background-color: var(--mint-cream);
+  color: var(--emerald);
+}
+
+.alert-error {
+  background-color: var(--mint-cream);
+  color: var(--emerald); /* Changed error color */
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 20px; /* Reduced padding for smaller screens */
+  }
+
+  input, select, textarea {
+    padding: 10px; /* Reduced padding for smaller screens */
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar a {
+    margin: 10px 0; /* Reduced margin for smaller screens */
+  }
+
+  .card {
+    padding: 16px; /* Reduced padding for smaller screens */
+  }
+
+  .table th,
+  .table td {
+    padding: 12px; /* Reduced padding for smaller screens */
+  }
+
+  .alert {
+    padding: 12px; /* Reduced padding for smaller screens */
+  }
+}
