@@ -1,101 +1,102 @@
-# Inventario Inteligente - Intelligent Inventory Management Application
+# Inventario Inteligente - Aplicación de Gestión de Inventario Inteligente
 
-This is a full-stack inventory management application designed to provide a user-friendly interface for managing your inventory. It consists of a backend API built with Node.js and a frontend user interface built with React and Vite.
+Esta es una aplicación de gestión de inventario de pila completa diseñada para proporcionar una interfaz fácil de usar para gestionar su inventario. Consiste en una API de backend construida con Node.js y **Express.js**, y una interfaz de usuario frontend construida con React y Vite.
 
-## Project Structure
+## Estructura del Proyecto
 
--   `backend/`: Contains the server-side code, APIs, database logic, and server setup. Also contains a `database.sql` file for creating the necessary database structure.
--   `frontend/`: Contains the client-side code, user interface components, and frontend logic, built with Vite.
--   `.gitignore`: Specifies intentionally untracked files that Git should ignore, such as `.env` files and `node_modules` folders.
--   `README.md`: This file, providing documentation about the project, usage, and setup.
+-   `backend/`: Contiene el código del lado del servidor, las API, la lógica de la base de datos, y la configuración del servidor utilizando Express.js. También contiene un archivo `database.sql` para crear la estructura de base de datos necesaria.
+-   `frontend/`: Contiene el código del lado del cliente, los componentes de la interfaz de usuario y la lógica del frontend, construidos con Vite.
+-   `.gitignore`: Especifica intencionalmente los archivos no rastreados que Git debe ignorar, como los archivos `.env` y las carpetas `node_modules`.
+-   `README.md`: Este archivo, que proporciona documentación sobre el proyecto, su uso y configuración.
 
-## Getting Started
+## Empezando
 
-### Prerequisites
+### Prerrequisitos
 
-Before you begin, ensure you have the following installed:
+Antes de comenzar, asegúrese de tener instalado lo siguiente:
 
--   [Node.js](https://nodejs.org/) (version 16 or higher recommended)
--   [npm](https://www.npmjs.com/) (comes with Node.js)
--   A database server (e.g., SQL Server Management Studio)
+-   [Node.js(https://nodejs.org/) (versión 16 o superior recomendada)
+-   [npm](https://www.npmjs.com/) (viene con Node.js)
+-   Un servidor de base de datos (por ejemplo, SQL Server Management Studio)
 
-### Installation
+### Instalación
 
-1.  **Clone the repository:**
+1.  **Clona el repositorio:**
 
     ```sh
     git clone https://github.com/Leythertv/InventarioInteligente.git
     ```
 
-2.  **Navigate to the project directory:**
+2.  **Navega al directorio del proyecto:**
 
     ```sh
     cd InventarioInteligente
     ```
 
-3.  **Set up the Backend**
+3.  **Configurar el Backend**
 
-    *   Navigate to the backend folder:
+    *   Navega a la carpeta `backend`:
 
         ```sh
         cd backend
         ```
-    *   **Database Setup**:
-        *   Locate the `database.sql` file in the `backend` folder.
-        *   Use SQL Server Management Studio (or your preferred SQL Server client) to create a new database.
-        *   Execute the SQL queries in the `database.sql` file to create the necessary tables and schema for the application.
-    *   Install dependencies:
+
+    *   **Configuración de la Base de Datos**:
+        *   Localiza el archivo `database.sql` en la carpeta `backend`.
+        *   Utiliza SQL Server Management Studio (o tu cliente de SQL Server preferido) para crear una nueva base de datos.
+        *   Ejecuta las consultas SQL en el archivo `database.sql` para crear las tablas y el esquema necesarios para la aplicación.
+    *   Instala las dependencias:
 
         ```sh
         npm install
         ```
 
-    *   Create a `.env` file in the `backend` folder. See `.envexample` for required environment variables.
-    *   Rename `.envexample` to `.env` and update the variables with your actual database credentials and other configurations.
-    *   Start the backend server:
+    *   Crea un archivo `.env` en la carpeta `backend`. Consulta el archivo `.envexample` para ver las variables de entorno requeridas.
+    *   Cambia el nombre de `.envexample` a `.env` y actualiza las variables con tus credenciales de base de datos reales y otras configuraciones.
+    *   Inicia el servidor backend:
 
         ```sh
         npm run dev
         ```
 
-    *   The backend server will be running on port `5000`.
+    *   El servidor backend, basado en Express.js, se ejecutará en el puerto `5000`.
 
-4.  **Set up the Frontend**
+4.  **Configurar el Frontend**
 
-    *   Navigate to the frontend folder:
+    *   Navega a la carpeta `frontend`:
 
         ```sh
         cd ../frontend
         ```
 
-    *   Install dependencies:
+    *   Instala las dependencias:
 
         ```sh
         npm install
         ```
 
-    *   Start the frontend application with Vite:
+    *   Inicia la aplicación frontend con Vite:
 
         ```sh
         npm run dev
         ```
 
-    *   The frontend application will be available at `http://localhost:5173` by default.
+    *   La aplicación frontend estará disponible en `http://localhost:5173` de forma predeterminada.
 
-5.  **Access the Application**
+5.  **Acceder a la Aplicación**
 
-    Open your browser and go to the provided url for your frontend application (`http://localhost:5173` by default). The backend API will be running at `http://localhost:5000`.
+    Abre tu navegador y ve a la URL proporcionada para tu aplicación frontend (`http://localhost:5173` de forma predeterminada). La API de backend, basada en Express.js, se ejecutará en `http://localhost:5000`.
 
-## Environment Variables
+## Variables de Entorno
 
-The application uses environment variables for configuration. See the `.envexample` file in the `backend` folder for the required variables.
+La aplicación utiliza variables de entorno para su configuración. Consulta el archivo `.envexample` en la carpeta `backend` para ver las variables requeridas.
 
-**Important**: Create a `.env` file in the `backend` folder by renaming the `.envexample` to `.env`, then update the variables in this `.env` file with your actual credentials. **Never commit the `.env` file to version control**. The `.gitignore` file ensures this is not committed.
+**Importante**: Crea un archivo `.env` en la carpeta `backend` cambiando el nombre de `.envexample` a `.env`, luego actualiza las variables en este archivo `.env` con tus credenciales reales. **Nunca confirmes el archivo `.env` en el control de versiones**. El archivo `.gitignore` asegura que esto no suceda.
 
-## Contributing
+## Contribuciones
 
-If you want to contribute to the project, please fork the repository, make your changes in a new branch, and create a pull request.
+Si deseas contribuir al proyecto, por favor, haz un fork del repositorio, realiza tus cambios en una nueva rama y crea una solicitud de extracción.
 
-## License
+## Licencia
 
-[Add your license here if you have one]
+[Agrega tu licencia aquí si tienes una]
