@@ -96,7 +96,3 @@ La aplicación utiliza variables de entorno para su configuración. Consulta el 
 ## Contribuciones
 
 Si deseas contribuir al proyecto, por favor, haz un fork del repositorio, realiza tus cambios en una nueva rama y crea una solicitud de extracción.
-
-## Licencia
-
-[Agrega tu licencia aquí si tienes una]
