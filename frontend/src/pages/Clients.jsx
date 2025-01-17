@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { FaSearch, FaPlus, FaEdit, FaTrash } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
+import { Search, Plus, Edit, Trash } from 'lucide-react'
 import BackButton from '../components/BackButton'
 import './Clients.css'
 
@@ -113,43 +114,58 @@ export default function Clients() {
           placeholder="Buscar cliente por nombre o RUC..."
           value={searchTerm}
           onChange={handleSearch}
+          aria-label="Buscar clientes"
         />
-        <button onClick={() => openModal()}>
-          <FaPlus /> Nuevo Cliente
+        <button 
+          onClick={() => openModal()}
+          aria-label="Agregar nuevo cliente"
+        >
+          <Plus size={18} />
+          <span>Nuevo Cliente</span>
         </button>
       </div>
 
-      <table className="clients-table">
-        <thead>
-          <tr>
-            <th>RUC</th>
-            <th>Nombre</th>
-            <th>Dirección</th>
-            <th>Teléfono</th>
-            <th>Email</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredClients.map(client => (
-            <tr key={client.ID_Cliente}>
-              <td>{client.RUC}</td>
-              <td>{client.NombreCliente}</td>
-              <td>{client.Direccion}</td>
-              <td>{client.Telefono}</td>
-              <td>{client.CorreoElectronico}</td>
-              <td className="action-buttons">
-                <button className="edit-btn" onClick={() => openModal(client)}>
-                  <FaEdit />
-                </button>
-                <button className="delete-btn" onClick={() => handleDelete(client.ID_Cliente)}>
-                  <FaTrash />
-                </button>
-              </td>
+      <div className="table-container">
+        <table className="clients-table">
+          <thead>
+            <tr>
+              <th>RUC</th>
+              <th>Nombre</th>
+              <th>Dirección</th>
+              <th>Teléfono</th>
+              <th>Email</th>
+              <th>Acciones</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredClients.map(client => (
+              <tr key={client.ID_Cliente}>
+                <td>{client.RUC}</td>
+                <td>{client.NombreCliente}</td>
+                <td>{client.Direccion}</td>
+                <td>{client.Telefono}</td>
+                <td>{client.CorreoElectronico}</td>
+                <td className="action-buttons">
+                  <button 
+                    className="edit-btn" 
+                    onClick={() => openModal(client)}
+                    aria-label={`Editar ${client.NombreCliente}`}
+                  >
+                    <Edit size={16} />
+                  </button>
+                  <button 
+                    className="delete-btn" 
+                    onClick={() => handleDelete(client.ID_Cliente)}
+                    aria-label={`Eliminar ${client.NombreCliente}`}
+                  >
+                    <Trash size={16} />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {showModal && (
         <div className="modal">
@@ -164,6 +180,7 @@ export default function Clients() {
                   value={formData.RUC}
                   onChange={handleInputChange}
                   required
+                  aria-label="RUC del cliente"
                 />
               </div>
               <div className="form-group">
@@ -174,6 +191,7 @@ export default function Clients() {
                   value={formData.NombreCliente}
                   onChange={handleInputChange}
                   required
+                  aria-label="Nombre del cliente"
                 />
               </div>
               <div className="form-group">
@@ -183,6 +201,7 @@ export default function Clients() {
                   name="Direccion"
                   value={formData.Direccion}
                   onChange={handleInputChange}
+                  aria-label="Dirección del cliente"
                 />
               </div>
               <div className="form-group">
@@ -192,6 +211,7 @@ export default function Clients() {
                   name="Telefono"
                   value={formData.Telefono}
                   onChange={handleInputChange}
+                  aria-label="Teléfono del cliente"
                 />
               </div>
               <div className="form-group">
@@ -201,6 +221,7 @@ export default function Clients() {
                   name="CorreoElectronico"
                   value={formData.CorreoElectronico}
                   onChange={handleInputChange}
+                  aria-label="Email del cliente"
                 />
               </div>
               <div className="form-actions">
@@ -208,10 +229,15 @@ export default function Clients() {
                   type="button"
                   className="cancel-btn"
                   onClick={() => setShowModal(false)}
+                  aria-label="Cancelar"
                 >
                   Cancelar
                 </button>
-                <button type="submit" className="save-btn">
+                <button 
+                  type="submit" 
+                  className="save-btn"
+                  aria-label="Guardar cliente"
+                >
                   Guardar
                 </button>
               </div>

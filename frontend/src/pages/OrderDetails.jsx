@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { PDFDownloadLink } from '@react-pdf/renderer'
+import { ArrowLeft, Printer, Plus, Edit, Trash } from 'lucide-react'
 import FacturaPDF from '../components/FacturaPDF'
 import BackButton from '../components/BackButton'
 import './OrderDetails.css'
@@ -111,8 +112,13 @@ export default function OrderDetails() {
     <div className="order-details-container">
       <BackButton />
       <h1>Detalles del Pedido #{orderId}</h1>
+      
       <div className="actions">
-        <button onClick={() => navigate(-1)}>Volver a Pedidos</button>
+        <button onClick={() => navigate(-1)}>
+          <ArrowLeft size={18} />
+          <span>Volver a Pedidos</span>
+        </button>
+        
         {orderInfo && (
           <PDFDownloadLink
             document={
@@ -126,7 +132,8 @@ export default function OrderDetails() {
           >
             {({ loading }) => (
               <button className="print-button">
-                {loading ? 'Generando factura...' : 'Imprimir Factura'}
+                <Printer size={18} />
+                <span>{loading ? 'Generando factura...' : 'Imprimir Factura'}</span>
               </button>
             )}
           </PDFDownloadLink>
@@ -134,61 +141,66 @@ export default function OrderDetails() {
       </div>
 
       {/* Products List */}
-      <table className="order-details-table">
-        <thead>
-          <tr>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Precio Unitario</th>
-            <th>Subtotal</th>
-            <th>IVA (12%)</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orderDetails.map(detail => (
-            <tr key={detail.ID_DetallePedido}>
-              <td>{detail.NombreProducto}</td>
-              <td>
-                <input
-                  type="number"
-                  value={detail.Cantidad}
-                  min="1"
-                  onChange={(e) => handleUpdateQuantity(detail.ID_DetallePedido, e.target.value)}
-                />
-              </td>
-              <td>${detail.PrecioUnitario.toFixed(2)}</td>
-              <td>${detail.Subtotal.toFixed(2)}</td>
-              <td>${calculateIVA(detail.Subtotal).toFixed(2)}</td>
-              <td>
-                <button onClick={() => handleRemoveProduct(detail.ID_DetallePedido)}>
-                  Eliminar
-                </button>
-              </td>
+      <div className="table-container">
+        <table className="order-details-table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio Unitario</th>
+              <th>Subtotal</th>
+              <th>IVA (12%)</th>
+              <th>Acciones</th>
             </tr>
-          ))}
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan="3" className="total-label">Subtotal:</td>
-            <td className="total-amount">${subtotalAmount.toFixed(2)}</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td colSpan="3" className="total-label">IVA (12%):</td>
-            <td className="total-amount">${ivaAmount.toFixed(2)}</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td colSpan="3" className="total-label">Total:</td>
-            <td className="total-amount">${totalAmount.toFixed(2)}</td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tfoot>
-      </table>
+          </thead>
+          <tbody>
+            {orderDetails.map(detail => (
+              <tr key={detail.ID_DetallePedido}>
+                <td>{detail.NombreProducto}</td>
+                <td>
+                  <input
+                    type="number"
+                    value={detail.Cantidad}
+                    min="1"
+                    onChange={(e) => handleUpdateQuantity(detail.ID_DetallePedido, e.target.value)}
+                  />
+                </td>
+                <td>${detail.PrecioUnitario.toFixed(2)}</td>
+                <td>${detail.Subtotal.toFixed(2)}</td>
+                <td>${calculateIVA(detail.Subtotal).toFixed(2)}</td>
+                <td>
+                  <button 
+                    onClick={() => handleRemoveProduct(detail.ID_DetallePedido)}
+                    aria-label="Eliminar producto"
+                  >
+                    <Trash size={16} />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colSpan="3" className="total-label">Subtotal:</td>
+              <td className="total-amount">${subtotalAmount.toFixed(2)}</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colSpan="3" className="total-label">IVA (12%):</td>
+              <td className="total-amount">${ivaAmount.toFixed(2)}</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colSpan="3" className="total-label">Total:</td>
+              <td className="total-amount">${totalAmount.toFixed(2)}</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
 
       {/* Add Product Form */}
       <div className="add-product-form">
@@ -223,7 +235,10 @@ export default function OrderDetails() {
             />
           </div>
 
-          <button type="submit">Agregar Producto</button>
+          <button type="submit">
+            <Plus size={16} />
+            <span>Agregar Producto</span>
+          </button>
         </form>
       </div>
     </div>

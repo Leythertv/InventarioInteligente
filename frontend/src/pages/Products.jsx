@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { Edit, Trash, Plus } from 'lucide-react'
 import BackButton from '../components/BackButton'
-import '../pages/Products.css'
+import './Products.css'
 
 const Products = () => {
   const [products, setProducts] = useState([])
@@ -118,7 +119,8 @@ const Products = () => {
           required
         />
         <button type="submit">
-          {editMode ? 'Actualizar Producto' : 'Agregar Producto'}
+          <Plus size={18} />
+          <span>{editMode ? 'Actualizar Producto' : 'Agregar Producto'}</span>
         </button>
       </form>
 
@@ -130,8 +132,20 @@ const Products = () => {
             <p>Precio: ${product.Precio}</p>
             <p>Stock: {product.CantidadStock}</p>
             <div className="product-actions">
-              <button onClick={() => handleEdit(product)}>Editar</button>
-              <button onClick={() => handleDelete(product.ID_Producto)}>Eliminar</button>
+              <button 
+                onClick={() => handleEdit(product)}
+                aria-label="Editar producto"
+              >
+                <Edit size={16} />
+                <span>Editar</span>
+              </button>
+              <button 
+                onClick={() => handleDelete(product.ID_Producto)}
+                aria-label="Eliminar producto"
+              >
+                <Trash size={16} />
+                <span>Eliminar</span>
+              </button>
             </div>
           </div>
         ))}

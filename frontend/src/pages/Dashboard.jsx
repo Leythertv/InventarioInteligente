@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { Box, ClipboardList, Users } from 'lucide-react'
 import './Dashboard.css'
-import { FaBox, FaClipboardList, FaUsers } from 'react-icons/fa'
 
 const Dashboard = () => {
   const [metrics, setMetrics] = useState({
@@ -70,24 +70,27 @@ const Dashboard = () => {
           <button 
             className="nav-button"
             onClick={() => navigate('/products')}
+            aria-label="Ir a productos"
           >
-            <FaBox className="nav-icon" />
+            <Box size={32} className="nav-icon" />
             <span>Productos</span>
           </button>
           
           <button 
             className="nav-button"
             onClick={() => navigate('/orders')}
+            aria-label="Ir a pedidos"
           >
-            <FaClipboardList className="nav-icon" />
+            <ClipboardList size={32} className="nav-icon" />
             <span>Pedidos</span>
           </button>
 
           <button 
             className="nav-button"
             onClick={() => navigate('/clients')}
+            aria-label="Ir a clientes"
           >
-            <FaUsers className="nav-icon" />
+            <Users size={32} className="nav-icon" />
             <span>Clientes</span>
           </button>
         </div>

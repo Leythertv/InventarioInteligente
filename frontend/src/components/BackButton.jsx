@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FaChevronLeft } from 'react-icons/fa'
+import { ArrowLeft } from 'lucide-react'
 import './BackButton.css'
 
 const BackButton = () => {
@@ -11,8 +11,12 @@ const BackButton = () => {
   }
 
   return (
-    <button className="back-button" onClick={handleBack}>
-      <FaChevronLeft className="back-icon" />
+    <button 
+      className="back-button" 
+      onClick={handleBack}
+      aria-label="Volver atrás"
+    >
+      <ArrowLeft className="back-icon" size={24} />
     </button>
   )
 }

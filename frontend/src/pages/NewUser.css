@@ -1,132 +1,156 @@
+:root {
+  --primary: #2EC4B6;
+  --primary-dark: #209489;
+  --background: #f8fafc;
+  --text: #1e293b;
+  --text-light: #64748b;
+  --border: #e2e8f0;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a;
+    --text: #f8fafc;
+    --text-light: #94a3b8;
+    --border: #1e293b;
+    --shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
+  }
+}
+
 .new-user-container {
   max-width: 500px;
-  margin: 50px auto;
-  padding: 40px;
-  background-color: var(--white); /* Changed background color to white */
-  border-radius: 12px; /* More rounded corners */
-  box-shadow: 0 8px 16px rgba(46, 196, 182, 0.1); /* More pronounced shadow */
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  margin: 100px auto;
+  padding: 2rem;
+  background: var(--background);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
 }
 
 .new-user-container:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(46, 196, 182, 0.15); /* Larger shadow on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .new-user-container h1 {
   text-align: center;
-  margin-bottom: 30px;
-  color: var(--emerald); /* Changed text color */
-  font-size: 28px;
+  margin-bottom: 2rem;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 0.5px; /* Subtle letter spacing */
+  color: var(--text);
 }
 
 .new-user-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.5rem;
 }
 
-.new-user-form .form-group {
+.form-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.75rem;
 }
 
-.new-user-form label {
+.form-group label {
   font-weight: 600;
-  color: var(--emerald); /* Changed text color */
+  color: var(--text);
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.input-icon {
+  color: var(--text-light);
+  margin-left: 0.5rem;
 }
 
 .new-user-form input {
-  padding: 14px; /* Increased input padding */
-  border: 2px solid #000000; /* Changed border color to black */
-  border-radius: 8px; /* Rounded inputs */
-  font-size: 1rem; /* Input font-size */
-  background-color: var(--mint-cream); /* Changed background color */
-  color: var(--emerald); /* Changed text color */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  max-width: 100%; /* Ensure inputs do not extend beyond the container */
-  margin: 0 auto; /* Center the inputs */
-  width: calc(100% - 24px); /* Adjust width to account for padding */
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  transition: all 0.2s ease;
 }
 
 .new-user-form input::placeholder {
-  color: #999; /* Placeholder text color */
+  color: var(--text-light);
 }
 
 .new-user-form input:focus {
   outline: none;
-  border-color: var(--emerald); /* Focus border color */
-  box-shadow: 0 0 5px rgba(46, 196, 182, 0.3); /* Focus shadow */
 }
 
 .new-user-form button {
-  padding: 14px;
-  background-color: var(--emerald); /* Changed button color */
-  color: var(--white);
+  padding: 0.75rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: var(--radius);
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Button shadow */
-  max-width: 100%; /* Ensure button does not extend beyond the container */
-  margin: 0 auto; /* Center the button */
-  width: calc(100% - 24px); /* Adjust width to account for padding */
+  transition: all 0.2s ease;
 }
 
 .new-user-form button:hover {
-  background-color: var(--white); /* Hover button color */
-  color: var(--emerald); /* Changed text color on hover */
-  transform: scale(1.02); /* Slight scaling effect on hover */
-}
-
-.new-user-form button:active {
-  transform: scale(1);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
 }
 
 .error-message {
-  color: var(--emerald); /* Changed error message color */
+  color: #dc3545;
   text-align: center;
-  margin-top: 15px;
-  font-size: 0.9rem; /* Smaller error message */
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.success-message {
+  color: var(--primary);
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
 }
 
 .login-link {
   text-align: center;
-  margin-top: 25px; /* Increased spacing */
-  color: var(--emerald); /* Changed text color */
+  margin-top: 1.5rem;
+  color: var(--text-light);
   font-size: 0.9rem;
 }
 
 .login-link a {
-  color: var(--emerald); /* Changed link color */
+  color: var(--primary);
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .login-link a:hover {
-  color: var(--white); /* Hover link color */
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline;
 }
 
 @media (max-width: 480px) {
   .new-user-container {
-    margin: 20px;
-    padding: 30px;
+    margin: 50px 1rem;
+    padding: 1.5rem;
   }
 
   .new-user-container h1 {
-    font-size: 24px;
+    font-size: 1.8rem;
   }
 
   .new-user-form input,
   .new-user-form button {
-    padding: 12px;
-    font-size: 0.9rem;
+    padding: 0.75rem;
   }
 }

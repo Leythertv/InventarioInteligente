@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { Search, Plus, Edit, Trash, Eye } from 'lucide-react'
 import BackButton from '../components/BackButton'
 import './Orders.css'
 
@@ -126,42 +127,60 @@ export default function Orders() {
           value={search}
           onChange={handleSearch}
         />
+        <Search size={18} className="search-icon" />
       </div>
 
       {/* Orders Table */}
-      <table className="orders-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Usuario</th>
-            <th>Cliente</th>
-            <th>RUC</th>
-            <th>Fecha</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredOrders.map(order => (
-            <tr key={order.ID_Pedido}>
-              <td>{order.ID_Pedido}</td>
-              <td>{order.NombreUsuario}</td>
-              <td>{order.NombreCliente}</td>
-              <td>{order.RUC}</td>
-              <td>{new Date(order.FechaPedido).toLocaleDateString()}</td>
-              <td>
-                <button onClick={() => handleEdit(order)}>Editar</button>
-                <button onClick={() => handleDelete(order.ID_Pedido)}>Eliminar</button>
-                <button
-                  onClick={() => handleViewDetails(order.ID_Pedido)}
-                  style={{backgroundColor: '#007bff'}}
-                >
-                  Ver Detalles
-                </button>
-              </td>
+      <div className="table-container">
+        <table className="orders-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Usuario</th>
+              <th>Cliente</th>
+              <th>RUC</th>
+              <th>Fecha</th>
+              <th>Acciones</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredOrders.map(order => (
+              <tr key={order.ID_Pedido}>
+                <td>{order.ID_Pedido}</td>
+                <td>{order.NombreUsuario}</td>
+                <td>{order.NombreCliente}</td>
+                <td>{order.RUC}</td>
+                <td>{new Date(order.FechaPedido).toLocaleDateString()}</td>
+                <td>
+                  <div className="action-buttons">
+                    <button 
+                      className="edit-btn"
+                      onClick={() => handleEdit(order)}
+                      aria-label="Editar pedido"
+                    >
+                      <Edit size={16} />
+                    </button>
+                    <button 
+                      className="delete-btn"
+                      onClick={() => handleDelete(order.ID_Pedido)}
+                      aria-label="Eliminar pedido"
+                    >
+                      <Trash size={16} />
+                    </button>
+                    <button
+                      className="view-btn"
+                      onClick={() => handleViewDetails(order.ID_Pedido)}
+                      aria-label="Ver detalles"
+                    >
+                      <Eye size={16} />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {/* Order Form */}
       <div className="order-form">
@@ -213,8 +232,13 @@ export default function Orders() {
           </div>
 
           <div className="form-actions">
-            <button type="submit">Guardar</button>
-            <button type="button" onClick={resetForm}>Cancelar</button>
+            <button type="submit" className="save-btn">
+              <Plus size={16} />
+              <span>Guardar</span>
+            </button>
+            <button type="button" className="cancel-btn" onClick={resetForm}>
+              Cancelar
+            </button>
           </div>
         </form>
       </div>

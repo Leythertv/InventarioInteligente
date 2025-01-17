@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FaUserCircle, FaSignOutAlt } from 'react-icons/fa'
+import { UserCircle, LogOut } from 'lucide-react'
 import './UserMenu.css'
 
 const UserMenu = () => {
@@ -18,13 +18,22 @@ const UserMenu = () => {
 
   return (
     <div className={`user-menu ${isOpen ? 'open' : ''}`}>
-      <button className="user-icon" onClick={toggleMenu}>
-        <FaUserCircle size={28} />
+      <button 
+        className="user-icon" 
+        onClick={toggleMenu}
+        aria-label="Menú de usuario"
+        aria-expanded={isOpen}
+      >
+        <UserCircle size={28} />
       </button>
       
       <div className="menu-content">
-        <button className="menu-item" onClick={handleLogout}>
-          <FaSignOutAlt className="menu-icon" />
+        <button 
+          className="menu-item" 
+          onClick={handleLogout}
+          aria-label="Cerrar sesión"
+        >
+          <LogOut className="menu-icon" size={20} />
           <span>Cerrar Sesión</span>
         </button>
       </div>
