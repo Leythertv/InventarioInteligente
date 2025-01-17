@@ -1,4 +1,4 @@
-# Inventario Inteligente - Aplicación de Gestión de Inventario Inteligente
+# Aplicación de Gestión de Inventario Inteligente
 
 Esta es una aplicación de gestión de inventario de pila completa diseñada para proporcionar una interfaz fácil de usar para gestionar su inventario. Consiste en una API de backend construida con Node.js y **Express.js**, y una interfaz de usuario frontend construida con React y Vite.
 
